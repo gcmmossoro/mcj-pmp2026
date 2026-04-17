@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="MCJ Seguro para Elas — Campanha de combate à violência doméstica no São João. GCM Mossoró - RN." />
-  <title>MCJ Seguro para Elas | GCM Mossoró - RN</title>
+    content="MCJ Seguro para Elas — Campanha de combate à violência doméstica no São João. GCM Mossoró-RN." />
+  <title>MCJ Seguro para Elas | GCM Mossoró-RN</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -56,7 +56,7 @@
       <div class="logos-row">
         <img src="assets/images/patrulha-nobg.png" alt="Patrulha Maria da Penha — GCM Mossoró" class="logo-img"
           loading="eager" />
-        <img src="assets/images/gcm-nobg.png" alt="Guarda Civil Municipal de Mossoró - RN" class="logo-img"
+        <img src="assets/images/gcm-nobg.png" alt="Guarda Civil Municipal de Mossoró-RN" class="logo-img"
           loading="eager" />
       </div>
 
@@ -93,21 +93,21 @@
       <p class="section-title" aria-label="Canais de denúncia">Canais de denúncia</p>
       <div class="numbers-grid" role="list">
 
-        <a href="tel:153" class="number-card" role="listitem">
+        <div class="number-card" role="listitem">
           <div class="num-badge" aria-label="Número 153">153</div>
           <div class="num-info">
             <div class="num-label">Guarda Civil Municipal</div>
             <div class="num-sublabel">Atendimento de emergência</div>
           </div>
-        </a>
+        </div>
 
-        <a href="tel:190" class="number-card" role="listitem">
+        <div class="number-card" role="listitem">
           <div class="num-badge" aria-label="Número 190">190</div>
           <div class="num-info">
             <div class="num-label">Polícia Militar</div>
             <div class="num-sublabel">Emergência e proteção imediata</div>
           </div>
-        </a>
+        </div>
 
       </div>
 
@@ -220,6 +220,17 @@
     </svg>
   </button>
 
+  <!-- Botão sair rápido -->
+  <button id="btn-sair" class="sair-rapido-btn" type="button" aria-label="Sair desta página rapidamente">
+    ✕ Sair rápido
+  </button>
+
+  <!-- Controles de acessibilidade -->
+  <div class="acesso-controls" role="group" aria-label="Tamanho do texto">
+    <button class="acesso-btn" id="btn-menor" aria-label="Diminuir texto">A-</button>
+    <button class="acesso-btn" id="btn-maior" aria-label="Aumentar texto">A+</button>
+  </div>
+
   <!-- Scripts -->
   <script>
     // Gera estrelas animadas no fundo
@@ -241,6 +252,39 @@
       }
     })();
   </script>
+
+  <!-- Sair rápido -->
+  <script>
+    document.getElementById('btn-sair').addEventListener('click', function () {
+      // Substitui o histórico para que o "voltar" não retorne ao site
+      window.location.replace('https://www.google.com.br');
+    });
+  </script>
+
+  <!-- Acessibilidade: tamanho do texto -->
+  <script>
+    (function () {
+      var niveis = ['normal', 'medio', 'grande'];
+      var idx = parseInt(localStorage.getItem('gcm-fonte-idx') || '0', 10);
+
+      function aplicar() {
+        document.body.setAttribute('data-fonte', niveis[idx]);
+        localStorage.setItem('gcm-fonte-idx', idx);
+        document.getElementById('btn-menor').disabled = idx <= 0;
+        document.getElementById('btn-maior').disabled = idx >= niveis.length - 1;
+      }
+
+      aplicar();
+
+      document.getElementById('btn-maior').addEventListener('click', function () {
+        if (idx < niveis.length - 1) { idx++; aplicar(); }
+      });
+      document.getElementById('btn-menor').addEventListener('click', function () {
+        if (idx > 0) { idx--; aplicar(); }
+      });
+    })();
+  </script>
+
   <script src="js/localizacao.js"></script>
 
 </body>
