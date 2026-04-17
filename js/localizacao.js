@@ -39,7 +39,7 @@ function montarMensagemComLocalizacao(cabecalho, lat, lon) {
 }
 
 function abrirWhatsApp(mensagem) {
-  window.open('https://wa.me/' + GCM_NUMERO + '?text=' + mensagem, '_blank', 'noopener,noreferrer');
+  window.location.href = 'https://wa.me/' + GCM_NUMERO + '?text=' + mensagem;
 }
 
 /* ── Status ── */
