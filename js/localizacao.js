@@ -96,8 +96,17 @@ function enviarComLocalizacao() {
 
 document.addEventListener('DOMContentLoaded', function () {
   const btn = document.getElementById('btn-whatsapp');
+  const btnFloat = document.getElementById('btn-whatsapp-float');
+
   if (btn) {
     btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      enviarComLocalizacao();
+    });
+  }
+
+  if (btnFloat) {
+    btnFloat.addEventListener('click', function (e) {
       e.preventDefault();
       enviarComLocalizacao();
     });
