@@ -7,25 +7,25 @@
 const GCM_NUMERO = '5584999700760';
 
 function montarMensagemSemLocalizacao() {
-  return encodeURIComponent(
-    '🚨 PRECISO DE AJUDA - EMERGÊNCIA 🚨\n' +
-    'Estou em situação de risco. Por favor, me socorram.\n' +
-    '(Localização não disponível)'
-  );
+  var texto =
+    '*** PRECISO DE AJUDA - EMERGENCIA ***\n' +
+    'Estou em situação de risco. Por favor, me ajude.\n' +
+    '(Localização não disponível)';
+  return encodeURIComponent(texto);
 }
 
 function montarMensagemComLocalizacao(lat, lon) {
-  const linkMapa = `https://maps.google.com/?q=${lat},${lon}`;
-  return encodeURIComponent(
-    '🚨 PRECISO DE AJUDA - EMERGÊNCIA 🚨\n' +
+  var linkMapa = 'https://maps.google.com/?q=' + lat + ',' + lon;
+  var texto =
+    '*** PRECISO DE AJUDA - EMERGENCIA ***\n' +
     'Estou em situação de risco. Minha localização:\n' +
     linkMapa + '\n' +
-    `Coordenadas: ${lat.toFixed(6)}, ${lon.toFixed(6)}`
-  );
+    'Coordenadas: ' + lat.toFixed(6) + ', ' + lon.toFixed(6);
+  return encodeURIComponent(texto);
 }
 
 function abrirWhatsApp(mensagem) {
-  const url = `https://wa.me/${GCM_NUMERO}?text=${mensagem}`;
+  var url = 'https://wa.me/' + GCM_NUMERO + '?text=' + mensagem;
   window.open(url, '_blank', 'noopener,noreferrer');
 }
 
