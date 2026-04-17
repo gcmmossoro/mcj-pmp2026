@@ -6,13 +6,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap');
 
 /* === Reset & base === */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Nunito', sans-serif;
@@ -38,8 +42,15 @@ body {
 }
 
 @keyframes twinkle {
-  from { opacity: 0.15; transform: scale(0.8); }
-  to   { opacity: 0.85; transform: scale(1.2); }
+  from {
+    opacity: 0.15;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 0.85;
+    transform: scale(1.2);
+  }
 }
 
 /* === Bandeirinhas === */
@@ -52,8 +63,10 @@ body {
 
 .rope-wrapper svg {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 50px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
   pointer-events: none;
 }
 
@@ -82,26 +95,87 @@ body {
 }
 
 @keyframes randomHeight {
-  0%   { transform: translateY(0) rotate(0deg); }
-  25%  { transform: translateY(-4px) rotate(-3deg); }
-  50%  { transform: translateY(-2px) rotate(2deg); }
-  75%  { transform: translateY(-5px) rotate(-2deg); }
-  100% { transform: translateY(0) rotate(0deg); }
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-4px) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateY(-2px) rotate(2deg);
+  }
+
+  75% {
+    transform: translateY(-5px) rotate(-2deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
 }
 
 /* aplica delay na animação */
-.bandeirinha:nth-child(1) { animation-delay: 0s; top: -18px;}
-.bandeirinha:nth-child(2) { animation-delay: 0.5s; top: -10px; }
-.bandeirinha:nth-child(3) { animation-delay: 1s; top: -8px; }
-.bandeirinha:nth-child(4) { animation-delay: 1.5s; top: -8px;}
-.bandeirinha:nth-child(5) { animation-delay: 2s;  top: -8px; }
-.bandeirinha:nth-child(6) { animation-delay: 2.5s; top: -15px; }
-.bandeirinha:nth-child(7) { animation-delay: 3s; top: -22px; }
-.bandeirinha:nth-child(8) { animation-delay: 3.5s; top: -28px; }
-.bandeirinha:nth-child(9) { animation-delay: 4s; top: -28px; }
-.bandeirinha:nth-child(10) { animation-delay: 4.5s; top: -28px; }
-.bandeirinha:nth-child(11) { animation-delay: 4.5s; top: -27px; }
-.bandeirinha:nth-child(12) { animation-delay: 4.5s; top: -25px; }
+.bandeirinha:nth-child(1) {
+  animation-delay: 0s;
+  top: -18px;
+}
+
+.bandeirinha:nth-child(2) {
+  animation-delay: 0.5s;
+  top: -10px;
+}
+
+.bandeirinha:nth-child(3) {
+  animation-delay: 1s;
+  top: -8px;
+}
+
+.bandeirinha:nth-child(4) {
+  animation-delay: 1.5s;
+  top: -8px;
+}
+
+.bandeirinha:nth-child(5) {
+  animation-delay: 2s;
+  top: -8px;
+}
+
+.bandeirinha:nth-child(6) {
+  animation-delay: 2.5s;
+  top: -15px;
+}
+
+.bandeirinha:nth-child(7) {
+  animation-delay: 3s;
+  top: -22px;
+}
+
+.bandeirinha:nth-child(8) {
+  animation-delay: 3.5s;
+  top: -28px;
+}
+
+.bandeirinha:nth-child(9) {
+  animation-delay: 4s;
+  top: -28px;
+}
+
+.bandeirinha:nth-child(10) {
+  animation-delay: 4.5s;
+  top: -28px;
+}
+
+.bandeirinha:nth-child(11) {
+  animation-delay: 4.5s;
+  top: -27px;
+}
+
+.bandeirinha:nth-child(12) {
+  animation-delay: 4.5s;
+  top: -25px;
+}
 
 .bandeirinha:hover {
   transform: scale(1.2) rotate(-5deg);
@@ -125,28 +199,33 @@ body {
   padding: clamp(12px, 3vw, 20px) 0 clamp(12px, 3vw, 20px);
 }
 
-/* Logo do evento (MCJ 2026) */
+/* Logo do evento (MCJ 2026) — fora do container para ficar livre de max-width */
 .logo-evento-wrap {
   display: flex;
   justify-content: center;
-  padding: 0 0 clamp(6px, 1.5vw, 12px);
+  padding: clamp(8px, 2vw, 16px) 0 clamp(4px, 1vw, 8px);
+  width: 100%;
+  position: relative;
+  z-index: 3;
 }
 
 .logo-evento {
-  width: clamp(160px, 42vw, 240px);
+  width: clamp(220px, 62vw, 420px);
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 6px 22px rgba(0,100,255,0.35));
+  filter: drop-shadow(0 6px 22px rgba(0, 100, 255, 0.35));
   transition: transform 0.35s;
 }
 
-.logo-evento:hover { transform: scale(1.04); }
+.logo-evento:hover {
+  transform: scale(1.04);
+}
 
 /* Linha divisória */
 .header-line {
   width: 50%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(168,85,247,0.3) 50%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.3) 50%, transparent);
   margin: 0 auto clamp(10px, 2.5vw, 16px);
 }
 
@@ -166,7 +245,9 @@ body {
   transition: transform 0.3s;
 }
 
-.logo-img:hover { transform: scale(1.06); }
+.logo-img:hover {
+  transform: scale(1.06);
+}
 
 /* === Conteúdo central === */
 .content {
@@ -192,9 +273,17 @@ body {
 }
 
 @keyframes flicker {
-  0%   { filter: drop-shadow(0 0 10px #ff9a00aa); }
-  50%  { filter: drop-shadow(0 0 24px #ffcc00cc); }
-  100% { filter: drop-shadow(0 0 14px #ff5500aa); }
+  0% {
+    filter: drop-shadow(0 0 10px #ff9a00aa);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 24px #ffcc00cc);
+  }
+
+  100% {
+    filter: drop-shadow(0 0 14px #ff5500aa);
+  }
 }
 
 .evento-tag {
@@ -212,8 +301,8 @@ body {
 
 /* Card principal */
 .main-card {
-  background: rgba(255,255,255,0.12);
-  border: 1.5px solid rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
   border-radius: 24px;
   padding: clamp(22px, 5vw, 36px) clamp(20px, 5vw, 32px);
   text-align: center;
@@ -224,8 +313,15 @@ body {
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .main-title {
@@ -259,7 +355,7 @@ body {
 /* Card de impacto */
 .impact-card {
   background: rgba(120, 0, 180, 0.45);
-  border: 1px solid rgba(192,132,252,0.5);
+  border: 1px solid rgba(192, 132, 252, 0.5);
   border-radius: 22px;
   padding: clamp(18px, 4vw, 26px) clamp(18px, 4vw, 26px);
   text-align: center;
@@ -269,14 +365,31 @@ body {
 }
 
 .impact-text {
-  font-size: clamp(14px, 4vw, 18px);
+  font-size: clamp(13px, 3.6vw, 16px);
   color: #f3e8ff;
   font-weight: 700;
-  line-height: 1.75;
+  line-height: 1.55;
+  margin-bottom: 10px;
 }
 
-.impact-text .accent { color: #fbbf24; }
-.impact-text .accent2 { color: #f9a8d4; }
+.impact-text:last-child {
+  margin-bottom: 0;
+}
+
+.impact-cta {
+  margin-top: 4px;
+  font-size: clamp(13px, 3.6vw, 15px);
+  color: #e9d5ff;
+  opacity: 0.95;
+}
+
+.impact-text .accent {
+  color: #fbbf24;
+}
+
+.impact-text .accent2 {
+  color: #f9a8d4;
+}
 
 /* Números de emergência */
 .section-title {
@@ -299,8 +412,8 @@ body {
 }
 
 .number-card {
-  background: rgba(255,255,255,0.1);
-  border: 1.5px solid rgba(192,132,252,0.45);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(192, 132, 252, 0.45);
   border-radius: 16px;
   padding: clamp(11px, 3vw, 15px) clamp(14px, 4vw, 20px);
   display: flex;
@@ -310,7 +423,7 @@ body {
 }
 
 .number-card:hover {
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
   transform: translateX(4px);
 }
 
@@ -327,7 +440,9 @@ body {
   letter-spacing: 1px;
 }
 
-.num-info { flex: 1; }
+.num-info {
+  flex: 1;
+}
 
 .num-label {
   color: #e9d5ff;
@@ -371,7 +486,9 @@ body {
   transform: translateY(-2px);
 }
 
-.whatsapp-btn:active { transform: scale(0.97); }
+.whatsapp-btn:active {
+  transform: scale(0.97);
+}
 
 .whatsapp-btn.carregando {
   opacity: 0.8;
@@ -386,10 +503,10 @@ body {
 
 .whatsapp-float-btn {
   position: fixed;
-  right: 16px;
-  bottom: 16px;
-  width: 58px;
-  height: 58px;
+  right: 18px;
+  bottom: 18px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
   border: none;
   background: transparent;
@@ -398,13 +515,13 @@ body {
   justify-content: center;
   cursor: pointer;
   z-index: 40;
-  box-shadow: 0 10px 24px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.5);
   transition: transform 0.16s ease, filter 0.16s ease;
 }
 
 .whatsapp-float-btn .wpp-icon {
-  width: 58px;
-  height: 58px;
+  width: 62px;
+  height: 62px;
   display: block;
 }
 
@@ -421,18 +538,25 @@ body {
   display: none;
   width: 18px;
   height: 18px;
-  border: 2.5px solid rgba(255,255,255,0.4);
+  border: 2.5px solid rgba(255, 255, 255, 0.4);
   border-top-color: #fff;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
   flex-shrink: 0;
 }
 
-.carregando .spinner { display: block; }
-.carregando .wpp-icon { display: none; }
+.carregando .spinner {
+  display: block;
+}
+
+.carregando .wpp-icon {
+  display: none;
+}
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Status de localização */
@@ -469,7 +593,10 @@ body {
   opacity: 0.9;
 }
 
-.footer-note .gcm-disk { color: #fbbf24; font-weight: 700; }
+.footer-note .gcm-disk {
+  color: #fbbf24;
+  font-weight: 700;
+}
 
 .footer-aviso {
   margin-top: 12px;
@@ -495,8 +622,8 @@ body {
 }
 
 .faq-item {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(192,132,252,0.3);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(192, 132, 252, 0.3);
   border-radius: 14px;
   overflow: hidden;
   transition: background 0.2s, border-color 0.2s;
@@ -504,7 +631,7 @@ body {
 
 .faq-item[open] {
   background: rgba(120, 0, 180, 0.35);
-  border-color: rgba(192,132,252,0.6);
+  border-color: rgba(192, 132, 252, 0.6);
 }
 
 .faq-pergunta {
@@ -522,7 +649,9 @@ body {
   line-height: 1.4;
 }
 
-.faq-pergunta::-webkit-details-marker { display: none; }
+.faq-pergunta::-webkit-details-marker {
+  display: none;
+}
 
 .faq-pergunta::after {
   content: '';
@@ -530,7 +659,7 @@ body {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  background: rgba(168,85,247,0.4);
+  background: rgba(168, 85, 247, 0.4);
   border-radius: 50%;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e9d5ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
   background-size: 14px;
@@ -549,25 +678,27 @@ body {
   color: #d8b4fe;
   line-height: 1.65;
   font-weight: 400;
-  border-top: 1px solid rgba(192,132,252,0.2);
+  border-top: 1px solid rgba(192, 132, 252, 0.2);
   padding-top: 12px;
   margin-top: -2px;
 }
 
 /* === Responsividade === */
 @media (max-width: 380px) {
-  .logos-row { gap: 10px; }
+  .logos-row {
+    gap: 10px;
+  }
 
   .whatsapp-float-btn {
     right: 12px;
     bottom: 12px;
-    width: 54px;
-    height: 54px;
+    width: 64px;
+    height: 64px;
   }
 
   .whatsapp-float-btn .wpp-icon {
-    width: 54px;
-    height: 54px;
+    width: 64px;
+    height: 64px;
   }
 }
 

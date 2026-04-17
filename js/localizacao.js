@@ -4,7 +4,7 @@
  * GCM Mossoró-RN
  */
 
-const GCM_NUMERO = '5584999700760';
+const GCM_NUMERO = '5584986317000';
 
 function montarMensagemSemLocalizacao() {
   var texto =
